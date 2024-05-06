@@ -22,10 +22,6 @@ def extract_mfcc(filename, n_mfcc=13):
 
 # Streamlit app interface
 st.title("Voice Recognition App")
-
-# Allow the user to choose between uploading or recording audio
-audio_input = st.radio("Select audio input type:", ("Upload", "Record"))
-
 if audio_input == "Upload":
     audio_file = st.file_uploader("Upload an audio file", type=["wav", "mp3"])
     if audio_file is not None:
