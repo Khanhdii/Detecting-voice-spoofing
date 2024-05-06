@@ -25,14 +25,13 @@ def extract_mfcc(filename, n_mfcc=13):
 st.title("Voice Recognition App")
 
 # Allow the user to choose between uploading or recording audio
-audio_input = st.radio("Select audio input type:", ("Upload", ""))
+# audio_input = st.radio("Select audio input type:", ("Upload", ""))
 
-if audio_input == "Upload":
-    audio_file = st.file_uploader("Upload an audio file", type=["wav", "mp3"])
-    if audio_file is not None:
-        # Process the uploaded audio file
-        st.audio(audio_file, format='audio/wav')
-        mfcc_features = extract_mfcc(audio_file)
+audio_file = st.file_uploader("Upload an audio file", type=["wav", "mp3"])
+if audio_file is not None:
+    # Process the uploaded audio file
+    st.audio(audio_file, format='audio/wav')
+    mfcc_features = extract_mfcc(audio_file)
 
 # Model prediction and display results
 if 'mfcc_features' in locals():
